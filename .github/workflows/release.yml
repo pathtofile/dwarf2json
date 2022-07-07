@@ -45,42 +45,42 @@ jobs:
           dwarf2json-darwin-amd64
 
     - name: Create release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
 
     - name: Upload binary - Linux
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dwarf2json-linux-amd64
-          asset_name: dwarf2json-linux-amd64
-          asset_content_type: application/octet-stream
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dwarf2json-linux-amd64
+        asset_name: dwarf2json-linux-amd64
+        asset_content_type: application/octet-stream
 
     - name: Upload binary - Windows
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dwarf2json-windows-amd64.exe
-          asset_name: dwarf2json-windows-amd64.exe
-          asset_content_type: application/octet-stream
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dwarf2json-windows-amd64.exe
+        asset_name: dwarf2json-windows-amd64.exe
+        asset_content_type: application/octet-stream
 
     - name: Upload binary - Mac
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: dwarf2json-darwin-amd64
-          asset_name: dwarf2json-darwin-amd64
-          asset_content_type: application/octet-stream
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: dwarf2json-darwin-amd64
+        asset_name: dwarf2json-darwin-amd64
+        asset_content_type: application/octet-stream
